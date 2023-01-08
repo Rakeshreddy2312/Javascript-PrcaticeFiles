@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        margin: 0;
+        box-sizing:border-box;
+    }
+    h3{
+        color: red;
+        background-color: darkgrey;
+    
+    }
+</style>
+</head>
+
+<body>
+    <script>
+        document.write("<h2>*********even and odd numbers**********</h2><hr>")
+        for(i=0;i<=10;i++)
+        {   
+            if(i%2==0)
+            {
+                document.write("<h1>"+i+"is even number"+"</h1>");
+                document.write("<br>");
+            }
+            else
+            {
+                document.write("<h3>"+ i+"is odd number</h3>");
+                document.write("<br>");
+            }
+        }
+        document.write("<hr><h2>*********prime numbers**********</h2><hr>")
+        for(i=20;i<=50;i++)
+        {
+
+            for(j=2;j<i;j++)
+            {
+                if(i%j==0)
+                {
+                    break;
+                }
+            }
+            if(j==i)
+            {
+                document.write("<strong>"+i+"is a prime number <br><strong>")
+            }
+        }
+    </script>
+</body>
+</html>

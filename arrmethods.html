@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-08">
+        <meta name="viewport" content="width:device-width,intial-scale:1.0">
+        <title>array methods</title>
+    </head>
+    <body>
+        <h2>1.array elements </h2>
+        <div id="data"></div>
+
+        <h2>coverting array into string  using toString()</h2>
+        <div id="data1"></div>
+
+        <h2>coverting array into string  using join(' ')</h2>
+        <div id="data2"></div>
+
+        <h2> searching an element using indexOf() and lastIndexOf() and includes() </h2>
+        <div id="data3"></div>
+
+        <h2>push and unshift </h2>
+        <div id="data4"></div>
+
+        <h2>pop and shift</h2>
+        <div id="data5"></div>
+
+        <h2>splice()</h2>
+        <div id="data6"></div>
+
+        <h2>slice()</h2>
+        <div id="data7"></div>
+        <P><strong>CONCAT ARRAY using (...) : </strong><span id="data8"><br></span><span id="data8-1"></span> </P>
+        <P><strong>reversing array: </strong><span id="data9"></span> </P>
+        <P><strong>ascending descending  ARRAY : </strong><span id="data10"></span><p id="ascd"></p><p id="dscd"></p> </P>
+        <P><strong>highest and lowest value of  ARRAY : </strong><span id="data11"></span><p id="mxmn"></p> </P>
+        <script>
+            const brands=["Yamaha","Tvs","Hero","Honda","Bajaj","Royal Enfield","Java","Yezdi","Suzuki","Kawasaki"];
+
+            console.log(brands);
+            console.log(typeof brands);
+            var bdrs= brands;
+            document.getElementById("data").innerHTML="<h4>" +brands + "</h4>";
+
+            console.log(brands.toString());
+            document.getElementById("data1").innerHTML= brands.toString();
+            console.log(typeof brands.toString());
+
+
+            console.log(brands.join(' ** '));
+            document.getElementById("data2").innerHTML= brands.join(' *** ');
+            console.log(typeof brands.join('@'));
+
+            var x=[10,20,50,30,50,20,50,,60,70];
+            console.log(x.indexOf(20));
+            console.log(x.lastIndexOf(20));
+            document.getElementById("data3").innerHTML= x + "<br> indexOf(50) is : " + x.indexOf(50) + "<br> lastIndexOf(50) is : " + x.lastIndexOf(50) + "<br> includes(30) is : "+x.includes(30);  
+            
+
+            document.getElementById("data4").innerHTML = brands.push('BMW')+ "<br> "+ brands + "<br>" + brands.unshift('HARLEY DAVID SON') +" <br>" + brands;
+
+            document.getElementById("data5").innerHTML= "(pop)deleted element  is : " +brands.pop() + "<br>" + brands + "<br><br>(shift)deleted element is : " + brands.shift() + "<br>" + brands;
+
+            // copying array into array
+            
+            var bb=[];
+            for( bikes of brands)
+            {
+                bb.push(bikes);
+            }
+            console.log(bb);
+
+            var bbrds = [...brands];
+            console.log(bbrds);
+
+            //------------------------//
+            console.log();
+            console.log();
+            document.getElementById("data6").innerHTML= "before splice <br> "+ brands+" <br>deleted  array is" +" <br> " + brands.splice(4) + "<br> after splice array is <br>" + brands;
+            console.log(brands.splice(3,0,"hello","hi","how",40,100,49328));
+            console.log(brands);
+            brands.splice(2,4);
+            console.log(brands);
+
+            //-----------------//
+            document.getElementById("data7").innerHTML= "before slice()   : " + brands + " <br>"  + brands.slice(2,5) + "<br> after slice() : " + brands;
+            //---------------//
+            var sub1=["html","css","js","react"];
+            var age=[20,10,23,27,50,46,79,25,99,,34,43,36,1];
+            var cc=[...sub1,...age];
+            document.getElementById("data8").innerHTML="<br>sub1 arrray <br>" + sub1+ "<br> age array :<br>"+ age + "<br>using spread(...) concat array cc<br>"+cc;
+            document.getElementById("data8-1").innerHTML = " <br> <u>concat using .concat  : </u>" + sub1.concat(age,"hi","welcome","hyderabad");
+            cc2=sub1.concat(age,"hi","welcome"," hyderabad");
+            //--------------------//
+            document.getElementById("data9").innerHTML=cc2.reverse();
+            //-----------//
+            var x=[30,29,46,32,49,6,45,98,25,21,91,99]
+            document.getElementById("data10").innerHTML= "<br>"+x.sort()+ "<br>reverse sorting<br> " + x.sort().reverse();
+            
+          //-------------------
+            x.sort(function(a,b){ return a-b; });           
+            document.getElementById("ascd").innerHTML="<br>ascending order of nums "+ x;
+
+            //------------
+            x.sort(function(a,b){return b-a; }); 
+            document.getElementById("dscd").innerHTML="<br>descending order of nums "+ x;
+
+            //----------------//
+            document.getElementById("mxmn").innerHTML= "max values is :"+ Math.max(...x)+ "<br>min values of an array is :"+ Math.min(...x);
+            console.log(Math.max(...x));
+            console.log(Math.min(...x));
+            //---------------//
+            x.sort(function (m,n){
+                return Math.random()-0.5;
+            });
+            console.log(x[2]);
+            //----------------
+        </script>
+    </body>
+</html>

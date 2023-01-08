@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="uname" class="uname1" name="username">
+    <input type="password" id="uname" class="uname1" name="username">
+    <input type="email" id="uname" class="uname" name="username">
+    <input type="radio" id="radio" class="uname" name="username">
+    <input type="checkbox" id="uname" class="uname" name="username">
+    <h2>hlkjn</h2>
+    <div class="data">
+        <h1>heading 1</h1>
+        <p id="des">kjhkn</p>
+    </div>
+    <div class="data">
+        <h1>heading 1</h1>
+        <p id="des">kjhkn</p>
+    </div>
+    <div class="data" name="he">
+        <h1>heading 1</h1>
+        <p id="des">kjhkn</p>
+    </div>
+    <div class="data" name="he">
+        <h1>heading 1</h1>
+        <p id="des">kjhkn</p>
+    </div>
+    <script>
+      //  var x="welcome to js <strong>DOM</strong>"
+        //document.getElementById("data").innerHTML=x;    
+      
+       var x= document.getElementById("uname");
+       x.removeAttribute("type");
+       x.setAttribute("type","password");
+       x.style.cssText=" border-radius:30px; border:5px solid blue";
+       x.style.backgroundColor="orange";
+       x.style.color="white";
+       console.log(x);
+       
+      
+        </script>
+</body>
+</html>

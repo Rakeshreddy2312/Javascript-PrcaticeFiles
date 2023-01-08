@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>creating anchors in html doc</title>
+</head>
+<body onload="myAnchors()">
+    <!--<button onclick="myAnchors()">click to create anchors</button>
+    <button onclick="hideAnchors()">click to hide anchors</button>-->
+    <script>
+       function myAnchors()
+       {
+        let head=document.createElement("h2");
+        let htext=document.createTextNode("these are social media website links");
+        document.body.appendChild(head);
+        head.appendChild(htext);
+       
+        var data=[
+            {name:"facebook",href:"https://www.facebook.com/",target:"_blanck",class:"socialmedia"},
+            {name:"youtube",href:"https://www.youtube.com/",target:"_blanck",class:"socialmedia"},
+            {name:"gooogle",href:"https://www.google.com/",target:"_blanck",class:"socialmedia"},
+            {name:"instagram",href:"https://www.instagram.com/",target:"_blanck",class:"socialmedia"},
+            {name:"twitter",href:"https://www.twitter.com/",target:"_blanck",class:"socialmedia"},
+            {name:"w3school",href:"https://www.w3schools.com/",target:"_blanck",class:"socialmedia"}
+            ];
+
+            data.map(myFunction);
+            function myFunction(item,index,arr)
+            {
+                
+                let x=document.createElement("a");
+                let br=document.createElement("br");
+                let y=document.createTextNode(item.name.toUpperCase());
+
+                x.setAttribute("href",item.href);
+                x.setAttribute("target",item.target);
+                x.setAttribute("class",item.class);
+                x.setAttribute("name",item.name) ;
+                x.style.cssText="background-color:#2f2f2f;margin:10px;text-decoration:none;color:red;"
+
+               
+                document.body.appendChild(x);
+                document.body.appendChild(br)
+                x.appendChild(y);
+                
+            }
+
+           }
+           function hideAnchors(){
+            var ele=document.querySelector(".socialmedia");
+            ele.style.display="none";
+            
+           }
+           
+    </script>
+</body>
+</html>

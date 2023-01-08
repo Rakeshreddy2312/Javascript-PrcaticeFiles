@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>array-iterateion-methods</title>  
+      <style>
+       
+      </style>
+    </head>
+    <body>
+      <h3>forEach() method </h3>
+      <div id="data1"></div>
+
+      <h3>map() method </h3>
+      <div id="data2"></div>
+
+      <h3>getiing i3 prrocessor laptops from all products using <br><em>filter()</em></h3>
+      <div id="data3"></div>
+
+      <h3>find() method</h3>
+      <div id="data4"></div>
+
+      <h3>findIndex() method</h3>
+      <div id="data5"></div>
+        <script>
+
+          var sub=["html","css","js","react","vue","bootstrap","tailwind","backbone","node"];
+          var  products=[
+                {id:2022001,nameofproduct:"lenovo ideapad 3",processor:"intel i5",processor_gen:"12",price:53599},
+                {id:2022002,nameofproduct:"lenovo ideapad gaming3 ",processor:"ryzen 5",processor_gen:"5",price:48999},
+                {id:2022003,nameofproduct:"hp 14s",processor:"intel i5",processor_gen:"10",price:45199},
+                {id:2022004,nameofproduct:"hp pavilion",processor:"intel i7",processor_gen:"12",price:72399},
+                {id:2022005,nameofproduct:"dell inspiron",processor:"intel i5",processor_gen:"11",price:50599},
+                {id:2022006,nameofproduct:"xiaomi notebook",processor:"intel i5",processor_gen:"11",price:55599},
+                {id:2022007,nameofproduct:"asus gaming 3",processor:"ryzen 7",processor_gen:"8",price:54499},
+                {id:2022008,nameofproduct:"asus vivobook",processor:"intel i3",processor_gen:"11",price:45199},
+                {id:2022008,nameofproduct:"asus vivobook",processor:"intel i3",processor_gen:"11",price:45199},
+                {id:2022009,nameofproduct:"real me note",processor:"intel i5",processor_gen:"10",price:47599},
+                {id:2022010,nameofproduct:"acer x5",processor:"intel i3",processor_gen:"10",price:43399}
+            ];
+
+          // forEach()--------------//
+          var vr="<table border='2' cellpadding='6' cellspacing='10'style='text-align:center'>";
+          vr += "<tr> <th>ID  OF PRODUCT </th> <th>NAME OF PRODUCT </th> <th>PRCSR NAME</th> <th>GEN OF PRSC </th> <th>PRICE</th></tr>";
+          products.forEach(function(v,i,a){
+            vr += "<tr>";
+            vr += "<td>"+v.id+"</td>" ;
+            vr += "<td>"+v.nameofproduct+"</td>"; 
+            vr += "<td>"+v.processor+"</td>" ;
+            vr += "<td>"+v.processor_gen +"th gen"+"</td>"; 
+            vr += "<td>"+v.price+"</td>" ;
+            vr += "</tr>";
+          
+          });
+           vr +="</table>";
+          document.getElementById("data1").innerHTML= vr;
+
+
+          //--------------- map()---------------------
+          var y1="<ol type='s1'>";
+          products.map(function(v,i,a){
+            y1+= "<li>product name : "+v.nameofproduct+ "   " +" "+v.processor+v.processor_gen+"</li>";
+          });
+           y1 +="</ol>";
+          document.getElementById("data2").innerHTML=y1;
+
+          //---------------------filter()---------------
+          var low= products.filter(function(v,i,a){
+              return v.processor.includes("i5");
+              //console.log(v.processor.includes("i3"));
+          });
+         console.log(low);
+
+          var ff="<table border='4'>";
+          ff += "<tr><th>S.No</th> <th>id of product</th>  <th>name of product</th>  <th>processor</th>  <th>price</th> </tr>"
+          low.map(function(item,i){
+           /* ff +="<tr>";
+            ff +="<td>"+i+"</td>";
+            ff +="<td>"+item.id+"</td>";
+            ff +="<td>"+ item.nameofproduct+"</td>";
+            ff +="<td>"+ item.processor+item.processor_gen +"</td>";
+            ff +="<td>"+item.price+"</td>";
+            ff +="</tr>"; */
+            ff +="<tr> <td>"+(i+1)+"</td><td>"+ item.id+"</td><td>"+item.nameofproduct+"</td><td>"+item.processor+"</td><td>"+item.price+"</td></tr>"
+          });
+          ff +="</table>";
+          document.getElementById("data3").innerHTML=ff;
+
+          // ----------------------------find()-------------
+         var prdct= products.find(function(ele,indx,arr){
+           // console.log(indx);
+           return ele.processor.includes("intel i5");
+           // console.log(ele.processor.includes("intel i5"),indx);
+          });
+          console.log(Object.values(prdct));
+          document.getElementById("data4").innerHTML=prdct +" <br>converted above object to array <br> "+ Object.entries(prdct);
+         
+          // ----------------------------findIndex()-------------
+         var indx1= products.findIndex(function(ele,indx,arr){
+           // console.log(indx);
+           return ele.processor.includes("intel i3");
+           // console.log(ele.processor.includes("intel i5"),indx);
+          });
+          console.log(Object.values(prdct));
+          document.getElementById("data5").innerHTML=indx1 ;
+
+
+          //-------------------------some()---------
+          var x=[11,91,52,75,37,54,89,29,76,21];
+          var y=[18,198,14,172,187,871,516,111];
+          var mn =x.some(function(v){
+            return v>5;
+          });
+
+          var mny=y.every(function(ele){
+          // return ele.includes("1");
+           return ele>=1;
+          });
+          console.log(mn);
+          console.log(mny);
+          
+          /*
+          tostring()
+          join("*")
+          indexOf("html")
+          lastIndexOf("html");
+          includes("css");
+          push("git","hello");
+          pop();
+          unshift("hi","good");
+          shift();
+          splice(5)
+          splice(2,3)
+          splice(2,0,"hi","kjbd","skn")
+          slice(3)
+          slice(2,5)
+          [...sub];
+          arr.concat(sub1,sub2);
+          arr.sort(function(a,b){ return a-b; } );
+          arr.sort(function(x,y){ return y-x; } );
+          arr.sort(function(m,n){ return Math.randome()-0.5; } );
+          
+          sort()
+          sort().reverse()
+
+          Math.min(...arr)
+          Math.max(...arr)
+          Math.min.apply(null,arr)
+          Math.max.apply(null,arr)
+          forEach()
+          map()
+
+          */
+        </script>
+    </body>
+</html>

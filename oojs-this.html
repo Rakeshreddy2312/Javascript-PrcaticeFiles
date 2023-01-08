@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oojs this and constructor</title>
+</head>
+<body>
+    <div class="data"></div>
+    <script>
+        var ele=document.querySelector(".data");
+        class ravi
+        { 
+            x="hello hi";
+            constructor()
+            {
+            
+                console.log("i am constructor")
+                document.write("i am constructor")
+            }
+            welcome(){
+                ele.innerHTML= `welcome${this.x}`;
+                console.log(this.x)
+            }
+        }
+        let obj=new ravi();
+        obj.welcome();
+    </script>
+</body>
+</html>

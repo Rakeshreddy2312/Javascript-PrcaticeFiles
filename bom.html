@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM-Browser Object Model</title>
+    <style>
+         @media print{
+            #ptn{
+                display: none;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <button onclick="openWindow()">click me to open new window</button>
+    <button onclick="closeWindow()">click me to close window</button><br>
+    <button onclick="printWindow()" id="ptn">print</button>
+    <button onclick="movewin()" id="ptn1">moveto</button>
+    <button onclick="moveby()" id="ptn2">moveby</button>
+    <p id="name">EKKIREDDY RAKESH REDDY</p>
+    <p >encrypted data: <span id="encry"></span> </p>
+    <p >decrypted data: <span id="decry"></span> </p>
+
+    <script>
+        console.log(`inner height is : ${innerHeight}`,`inner width is : ${innerWidth}`);
+        console.log("outerheight is : "+outerHeight,"outerwidth is : "+outerWidth);
+        
+        console.log('screen height is :'+screen.height, 'scrn width is : '+screen.width);
+        console.log('avail scrn hgt is :'+screen.availHeight, ' availscrn wdth is : '+screen.availWidth);
+        //console.log(localStorage)
+        console.log(location.protocol)
+        console.log(location.href)
+        console.log(location.toString)
+        console.log(history,history.length)
+        console.log(history)
+
+
+        console.log(screen)
+        var mywin;
+        //var ptn=document.getElementById("ptn");
+        //ptn.style.cssText="background-color:blue;color:#fff;padding:5px 10px;border-radius:10px";
+        var myname=document.querySelector("#name");
+        var encry=document.querySelector("#encry");
+        var decry=document.querySelector("#decry");
+        encry.innerHTML=btoa(myname.innerText)
+        decry.innerText=atob(encry.innerText)
+        console.log(atob("cmFrZXNo"))
+       // decry.innerHTML=btoa("ravikumar")
+        
+        function openWindow(){
+            mywin= window.open('','_blank','height=500,width=500,top=200,left=200');
+            mywin.document.write("<h1>this is my new window</h1>")
+            mywin.focus;
+        }
+        function  closeWindow(){
+             mywin.close();
+        }
+        function printWindow(){ 
+            print(mywin);
+        }
+
+        function movewin(){
+            mywin.moveTo(500,500);
+            mywin.focus();
+        }
+        function moveby(){
+            mywin.moveBy(500,500);
+            mywin.focus();
+        }
+
+        var myform;
+        function form(){
+            var unm=document.createElement("input");
+            var pswd=document.createElement("input");
+            unm.setAttribute("type","text");
+            pswd.setAttribute("type","password");
+            document.body.appendChild(unm);
+            document.body.appendChild(pswd);
+
+        }
+        
+        // var myform=setInterval(form, 2000);
+        // clearInterval(myform);
+     
+      myform= setTimeout(form,1000);
+       clearTimeout(myform);
+       (navigator.cookieEnabled==true)? console.log("coockies enabled successfully") : window.alert("please enabled cookies");
+    </script>
+</body>
+</html>

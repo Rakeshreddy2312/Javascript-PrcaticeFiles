@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-08">
+        <meta name="viewport" content="width:device-width,initial-scale1=1.0">
+    </head>
+    <body>
+        <div id="data"></div>
+        <script>
+            var arr1=[
+                {id:1,name:"rakesh",ln:"reddy",city:"siddipet"},
+                {id:2,name:"ramesh",ln:"a",city:"jngm"},
+                {id:3,name:"suresh",ln:"123",city:"secunderabad"},
+                {id:4,name:"somesh",ln:"jbc",city:"hyderabad"}
+            ]
+           var a=document.getElementById("data");
+            var a1="";
+            
+            for(dt of arr1)
+            {
+                a1 +="<h5> hi i am "+dt.name+ " from "+ dt["city"]+"</h5>";
+            }
+            a.innerHTML=a1;
+        </script>
+    </body>
+</html>

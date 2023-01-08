@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-JavaScript Object Notation</title>
+</head>
+<body>
+    <script>
+        var data=`[{"name":"ameerpet","dist":"hyderabad"},
+                {"name":"ravi kumar","dist":"nalgonda"}]`;
+        let jsondata=JSON.stringify(data);
+        console.log( jsondata);
+        let jsobjet=JSON.parse(jsondata);
+        console.log( jsobjet)
+        //console.log(typeof null);
+    </script>
+</body>
+</html>

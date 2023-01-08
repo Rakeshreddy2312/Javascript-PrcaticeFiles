@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-08">
+        <meta content="width=device-width.initial-scale=1.0" name="viewport">
+        <meta >
+        <title>
+            local storage creation
+        </title>
+    </head>
+    <body>
+        <button id="setls">set localStorage</button>
+        <button id="getls">get localStorage</button>
+        <button id="rmvls">remove localStorage</button>
+        <button id="clrls">clear localStorage</button>
+
+        <script>
+            var setls=document.querySelector("#setls");
+            var getls=document.querySelector("#getls");
+            var rmvls=document.querySelector("#rmvls");
+            var clrls=document.querySelector("#clrls");
+            
+            setls.addEventListener("click",()=>{
+                localStorage.setItem("uname","rakesh reddy");
+                localStorage.setItem("surname","ekkireddy");
+                localStorage.setItem("mobile_num","9100*****1");
+                localStorage.setItem("village","rebarthi");
+            });
+            
+           
+            rmvls.addEventListener("click",()=>{
+               localStorage.removeItem("uname");
+               
+                document.cookie="state=telangana","expires="+new Date();
+
+            });
+            getls.addEventListener("click",()=>{
+                console.log(localStorage.getItem("uname"));
+                console.log(localStorage.getItem("surname"));
+                console.log(localStorage.getItem("mobile_num"));
+                console.log(localStorage.getItem("village"));
+            });
+
+            clrls.addEventListener("click",()=>{
+                localStorage.clear();
+                console.log("clerd");
+            });  
+        </script>
+    </body>
+</html>

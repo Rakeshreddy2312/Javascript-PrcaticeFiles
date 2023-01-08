@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment</title>
+</head>
+<body>
+    <script>
+        var arr=[10,20,60,90,25,10,59,15,99,689,88,10,65];
+        console.log(arr);
+       // arr1= arr.join(" ").split("10").filter(Boolean).join("").split(" ").filter(Boolean);
+      arr1 = arr.filter((val,indx,array)=>array.indexOf(val)==indx);
+      // arr1=[... new Set(arr)] ; 
+        console.log(arr1);
+        
+
+        
+        //-------------example 2-------------------
+        var x= ["vandanam","hello","h","hello","namasthe","hello","namskar","hi","hello"];
+        console.log(x)
+      //  console.log(x.join(" ").split("hello").filter(Boolean).join("").split(" ").filter(Boolean));
+      y= x.filter(function(val,indx,arry){
+            return arry.indexOf(val)==indx;
+            //console.log(arry.indexOf(val)===indx);
+      });
+      console.log(y);
+    </script>
+</body>
+</html>

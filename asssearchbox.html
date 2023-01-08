@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0 auto;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow: 0px 0px  3px rgb(84, 84, 84);
+        } 
+        body{
+            margin: auto;
+            text-align: center;
+            margin-top: 20vh;
+        }
+        form{
+            padding-bottom: 10px;
+            border-bottom: 5px dotted #b0afaf;
+        }
+        table{
+            border: 20px groove rgb(229, 0, 0);
+            border-radius: 20px;
+            padding: 5px;
+            width: 50%;
+        }
+        input[type=text] {
+            background-color: white;
+            height: 30px;
+            width: 20%;
+            outline: none;
+            margin-right: 0px;
+            padding-right: 0px;
+            border-radius: 5px;
+        }
+        input[type=submit]{
+            height: 30px;
+            padding:0px 20px ;
+            margin-left: 0px;
+            font-weight: 500;
+            font-size: medium;
+            border-radius: 5px;
+            background-color: rgb(164, 164, 164);
+            color: black;
+        }
+        td{
+            border: 10px ridge rgb(184, 176, 176);
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            font-weight:bolder ;
+            font-size: x-large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            border-radius: 8px;
+        }
+        
+        .delBtn{
+            text-align: center;
+            border: 1px solid rgb(110, 109, 106);
+            background-color: rgb(189, 45, 45);
+            color: beige;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            /* box-shadow: 0px 0px 5px #868080; */
+            text-transform: capitalize;
+            box-shadow: inset -1px -1px 10px honeydew
+        }
+        .delBtn:hover{
+            background-color:rgb(178, 72, 72) ;
+        }
+        .row{
+           margin: 10px;
+           padding: 20px;
+           border-bottom: 1px solid;
+            
+        }
+    </style>
+</head>
+<body>
+    <form >
+        <h2>javascript arrays</h2>
+        <div>
+            <strong>Add Aubject :</strong> 
+            <div class="formgroup">
+                <input type="text" id="addsub" value="">
+                <input type="submit" class="addbtn" >
+            </div>
+        </div>
+        
+    </form>
+        <h2>subjects</h2>
+        <div class="subjects">
+        <table >
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+    <script>
+        var form=document.querySelector("form");
+        
+
+        var subject=["Html","css","javascript","react"];
+
+        function addSubject()
+        {   
+            var addSub = document.querySelector("#addsub");
+            event.preventDefault();
+
+            if(addSub.value!=="")
+            {   
+                 let findx=subject.includes(addSub.value);
+                if(!findx)
+                {
+                    subject.splice(0,0,addSub.value);
+                    showSubject();
+                    addSub.value='';
+                    console.log('sub added');
+                    console.log(subject)
+                }
+                else
+                {
+                    alert(addSub.value+" is already exist");
+                    addSub.value='';
+                } 
+                console.log("function called successfully");
+            }
+            else
+            {
+                alert("enter a subject to add")
+            }
+        }
+
+        var tablebody=document.getElementById("tbody");
+        function showSubject()
+        {
+            let txt='<table>';
+            for(sub of subject){
+                txt += `<tr ><td class='item'onclick='delSubject(this)' >${sub}</td><td><button class='delBtn' >delete</button></td></tr>`;
+            } 
+            txt+='</table>';
+            tablebody.innerHTML=txt;
+        }
+        showSubject();
+        
+        /*function delSubject(sub)
+        {
+            console.log('deleted');
+            let delsub = sub.innerHTML;
+            console.log(delsub)
+            let findx = subject.includes(delsub);
+
+            if(findx)
+            {
+                subject.splice(findx,1);
+                showSubject();
+                console.log(subject);
+            }
+
+        } */
+        function delSubject(ele)
+			{
+                
+				//let ele = document.querySelector(".item").innerHTML;
+                console.log(ele.innerHTML)
+				let fi = subject.indexOf(ele.innerHTML);
+                console.log(subject.indexOf(ele.innerHTML), "index of "+ele.innerHTML)
+				
+				if(fi!==-1)
+				{
+					subject.splice(fi, 1);
+                    console.log(subject);
+					showSubject();
+				}
+			} 
+        //delBtn.addEventListener("click",delSubject(this));
+        form.addEventListener("submit",addSubject);
+         
+    </script>
+</body>
+</html>

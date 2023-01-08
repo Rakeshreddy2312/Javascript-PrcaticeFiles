@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arraysorting</title>
+</head>
+<body>
+    <div id="data"></div>
+    <h3>sorting array </h3>
+    <div id="data1"></div>
+
+    <script>
+        let x=[
+            {fn:"rakesh",ln:"reddy"},
+            {fn:"ramesh",ln:"kumar"},
+            {fn:"sathish",ln:"patel"},
+            {fn:"ravi",ln:"kumar"},
+            {fn:"lokesh",ln:"babu"}
+        ]
+        let y="<table border=1>";
+        y+= "<tr> <th>firstname</th> <th>lastname</th> </tr>";
+        x.map(function(val){
+            y+="<tr><td>"+val.fn+"</td><td>"+val.ln+"</tr>"
+        });
+        y+="</table>";
+        document.getElementById("data").innerHTML=y;
+
+        
+
+        var array1=x.sort(function(a,b){
+            if (a.fn < b.fn) //sort string ascending
+                return -1;
+            if (a.fn > b.fn)
+                return 1;
+            return 0;
+            });
+            console.log(array1);
+            let y1="<table border=1>";
+        y1+= "<tr> <th>firstname</th> <th>lastname</th> </tr>";
+        array1.map(function(item,index,array){
+            y1+="<tr><td>"+item.fn+"</td><td>"+item.ln+"</tr>";
+               
+        });
+        y1+="</table>";
+        
+        document.getElementById("data1").innerHTML=y1;
+
+        user=["aa12","aaa1","ab23","ab299","212bn","ac","2020","bsjs76","zafeyg"]
+        user.sort(function(a, b){
+        return a === b ? 0 : a< b ? -1 : 1;
+        })
+console.log(user)
+
+        var m=[9,8,7,5,455,66,78,34,5,56,55];
+       // var xxx=[...new Set(m)]
+       var mnn=m.sort(function(start,end){
+        return start-end;
+       });
+       console.log(mnn)
+       /* console.log(xxx)
+        m.sort(function(a,b){return a-b})
+        console.log(m.sort(function(a,b){return a-b}));
+        console.log( );*/
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   <style>
+    *{
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        /* background-image:linear-gradient(to left, rgb(58, 56, 56),rgb(219, 219, 192),rgb(58,56,56)); */
+        background: #c8b1b1;
+        background-repeat: repeat;
+    }
+    .container{
+        /* border: 1px solid #fff ; */
+        /* background-color: rgb(255, 255, 255); */
+        /* border-radius: 0px 30px 0px 30px;  */
+        /* box-shadow: 0px 0px 100px rgb(73, 70, 70),0px 0px 50px #494747;  */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px blue;
+        border-style: ridge;
+        height: 100vh;
+       
+      
+    }
+    form{
+        /* height: 50vh; */
+        /* margin: 100px 0px auto; */
+        padding: 30px;
+        
+        border-radius: 10px;
+        background: linear-gradient(145deg, #bcbcbc, #e0e0e0);
+        box-shadow:  20px 20px 60px #b2b2b2,
+                    -20px -20px 60px #f0f0f0;
+      
+    }  
+   </style>
+</head>
+<body>
+    <div class="container">
+       <form action="">
+            <div class="formcontrol">
+                <label for="">username:</label>
+                <input type="text" name="unmae">
+            </div>
+            <div class="formcontrol">
+                <label for="">password:</label>
+                <input type="password" name="pswd" class="pswd">
+            <i class="fa fa-eye-slash eye"  onclick="show()" id="icon"></i>
+            </div>
+            <button type="submit">log in</button>
+            <p class="time"></p>
+        </form>
+    </div>
+    <script>
+     
+       function show(){
+        var pass=document.querySelector(".pswd");
+        var eye =document.querySelector("#icon");
+        if(pass.type==="password"){
+            pass.type="text";
+            eye.setAttribute("class","fa fa-eye eye");
+        }
+        else{
+            pass.type="password";
+            eye.setAttribute("class","fa fa-eye-slash eye");
+        } 
+       }
+       
+    </script>
+</body>
+</html>

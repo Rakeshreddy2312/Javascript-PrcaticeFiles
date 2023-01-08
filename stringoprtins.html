@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <body>
+      <title>strings operations</title>  
+    </body>
+    <head>
+        <h4>string operations / string methods</h4>
+        <p>input string:<strong><span id="str"></span></strong></p>
+        <p> string length:<span id="strlgthn"></span></p>
+        <p> toUpperCase():<span id="struprcs"></span></p>
+        <p> toLowerCase():<span id="strlwrcs"></span></p>
+        <p> indexOf("REDDY"):<span id="strindx"></span></p>
+        <p> lastIndexOf("REDDY"):<span id="strlstindx"></span></p>
+        <p> includes("SIDDIPET"):<span id="strincld"></span></p>
+        <h4>cutting string</h4>
+
+        <p> slice(15):<span id="slice"></span></p>
+
+        <p> substring(15):<span id="substring"></span></p>
+
+        <p> substr(15):<span id="substr"></span></p>
+        <h4>replace</h4>
+        <p> replace():<span id="replace"></span></p>
+
+        <h4>split() converting string in array</h4>
+        <p> split():<span id="split"></span></p>
+
+        <h4>trim() </h4>
+        <p> trim():<span id="trim"></span></p>
+
+        <script>
+            const str= "my firstname is EKKIREDDY. lastname is RAKESH REDDY i am from SIDDIPET district."
+            document.getElementById("str").innerHTML=str;
+            console.log(str);
+
+            document.getElementById("strlgthn").innerHTML=str.length;
+            document.getElementById("struprcs").innerHTML=str.toUpperCase();
+            document.getElementById("strlwrcs").innerHTML=str.toLowerCase();
+            document.getElementById("strindx").innerHTML=str.indexOf("REDDY");
+            document.getElementById("strlstindx").innerHTML=str.lastIndexOf("REDDY");
+            document.getElementById("strincld").innerHTML=str.includes("SIDDIPET");
+
+            
+            document.getElementById("slice").innerHTML=str.slice(15)+"<br> slice(15,25)  : "+str.slice(15,25)+"<br>slice(15,-25)  : "+str.slice(15,-25);
+            console.log("sliced string is :- "+str.slice(15));
+            console.log("sliced string is :- "+str.slice(15,25));
+            console.log("sliced string is :- "+str.slice(15,-25));
+
+            document.getElementById("substring").innerHTML=str.substring(15)+"<br> substring(15,25)  : "+str.substring(15,25)+"<br>substring(15,-25): "+str.substring(15,-25);
+            console.log(str.substring(15,5));
+            console.log(str.substring(15,45));
+            console.log(str.substring(15,-12));
+
+            document.getElementById("substr").innerHTML=str.substr(15)+"<br>substr(15,25)  : "+str.substr(15,25)+"<br>substr(-15,25): "+str.substr(-15,25);
+            console.log(str.substr(16,10));
+            console.log(str.substr(-69,70));
+
+            var strg="<u>html</u>, css, javascript these are required for developing a website by using <u>html</u> we can create structure <u>HTML</u> ";
+            document.getElementById("replace").innerHTML= strg+"<br>"+strg.replace("html","<b>HTML</b>") +"<br>" + strg.replace(/html/gi,"<b>hyper text markup language</b>");
+
+            let strgg="102@023@050@54@610@506@5@920@110"
+            let arr=[35,48,30,64,68,7216,23,105]
+            document.getElementById("split").innerHTML="string is : "+strgg+"<br>strng to array"+strgg.split("@")+"<br>array is "+arr+"<br>converting array into string : "+arr.join("-");
+
+            var name="     ekkireddy     rakesh      reddy       ";
+            document.getElementById("trim").innerHTML=name.trim("");
+            console.log(name.split(" ").filter(Boolean).join(" "));
+        </script>
+    </head>
+</html>

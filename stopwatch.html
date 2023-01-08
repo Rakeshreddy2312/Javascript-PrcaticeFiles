@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-08">
+        <title>Stop Watch</title>
+        <style>
+            body{
+                background-color: #30313b;
+            }
+            .container{
+                text-align: center;
+                margin-top: 45vh;
+                width:50%;
+                color: rgb(58, 150, 152);
+                margin-left: 25vw;
+                padding: 0px 50px;
+                padding-bottom: 40px;
+                border-radius: 27px;
+                background: #30313b;
+                /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+                box-shadow: inset 25px 25px 32px #1c1c22,
+                           inset -25px -25px 32px #444654,
+                           25px 25px 32px #1c1c22,
+                           -25px -25px 32px #444654;
+
+        
+            }
+            .timeShow{
+                font-size: 40px;
+                font-family:   'Trebuchet MS', sans-serif;
+                font-weight: bolder;
+                padding: 40px 0px;
+                letter-spacing: 5px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 0px 10px;
+                border: none;
+                border-radius: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: medium;
+                font-weight: 600;
+                background: rgb(165, 162, 162);
+               
+            }
+            button:hover{
+                color: #212121;
+                background-color: rgb(179, 188, 185);
+                box-shadow: 0px 0px 5px #efefef,
+                             0px 0px 15px #efefef;
+                transition-property: all;
+                transition-timing-function:ease-in-out ;
+                transition-duration: 0.23s;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="timeShow">00:00:00:000</div>
+            
+            <button id="startTimer">start</button>
+            <button id="pauseTimer">pause</button>
+            <button id="resetTimer">reset</button>
+        </div>
+        <script>
+            let [millisec,sec,min,hr]=[0,0,0,0];
+            let int;
+            let timetoshow=document.querySelector(".timeShow");
+
+
+            document.getElementById("startTimer").addEventListener("click",()=>{ int=setInterval(runTimer,10) });
+            document.getElementById("pauseTimer").addEventListener("click",ptimer);
+            document.getElementById("resetTimer").addEventListener("click",rTimer);
+           
+
+            function runTimer(){
+                millisec+=10;
+                if(millisec==1000){ 
+                    millisec=0;
+                    sec++;
+                    if(sec==60){ 
+                        sec=0;
+                        min++;
+                        if(min==60){ 
+                            min=0;
+                            hr++;
+                        }
+                    }
+                }
+                 h=hr<10?"0"+hr:hr;
+                 m=min<10?"0"+min:min;
+                 s=sec<10?"0"+sec:sec;
+                 ms=millisec<10?"000"+millisec:millisec;
+                 ms=millisec<100?"0"+millisec:millisec;
+                 
+                timetoshow.innerHTML=`${h}:${m}:${s}:${ms}`;
+            }
+
+            function ptimer(){
+             clearInterval(int);
+             console.log("timer_paused");
+            }
+            function rTimer(){
+                [millisec,sec,min,hr]=[0,0,0,0];
+                timetoshow.innerHTML= "00:00:00:000";
+                console.log("timer reset to initial") 
+            }
+            
+        </script>
+    </body>
+</html>

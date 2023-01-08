@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and time</title>
+</head>
+<body>
+    <h1>javascript date object</h1>
+    <p id="date"></p>
+    <script>
+       /* var x= Date();
+        var y=new Date(2019,11,12);
+        var z=new Date(1998,11,23,7,23);
+        var data=new Date("1998 22 10");
+        console.log(data);
+        //document.getElementById("date").innerHTML=y+"<br>"+z.toString();
+
+        console.log(z);
+        console.log( z.toLocaleDateString());
+        console.log(z.toDateString());
+        console.log(z.toLocaleTimeString());
+        console.log(z.toTimeString());
+        //console.log(y)
+        //console.log(x); */
+
+        var weeks=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
+        let months=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+        let sw=["sun","mon","tue","wed","thur","fri","sat"];
+        let sm=["jan","feb","mar","apr","may","jun","jul","aug","sept","oct","nov","dec"];
+
+        let d= new Date("dec 23 2022 22:9:08");
+        console.log( d);
+        console.log(d.toDateString());
+        console.log(d.toTimeString());
+        console.log(d.toLocaleString("en-us",{}));
+        console.log(d.toLocaleDateString());
+        console.log(d.toLocaleTimeString());
+
+        console.log(d.getFullYear());
+        console.log(d.getMonth());
+        console.log(d.getDate());
+        console.log(d.getTime());
+
+        console.log(d.getDay());
+
+       console.log(d.getFullYear()+ " " +d.getMonth() + " "+ d.getDate()+" "+d.getDay()+" "+d.getHours()+" "+d.getMinutes()+" "+d.getSeconds()+"/ "+d.getMilliseconds()+" /"+d.getUTCMilliseconds());
+
+       console.log(d.getFullYear()+ " " +months[d.getMonth()] + " "+ d.getDate()+"th "+weeks[d.getDay()]+" "+d.getHours()+" "+d.getMinutes()+" "+d.getSeconds()+"/ "+d.getMilliseconds()+" /"+d.getUTCMilliseconds());
+
+       console.log(d.getFullYear()+ " " +sm[d.getMonth()] + " "+ d.getDate()+"th "+sw[d.getDay()]+" "+d.getHours()+" "+d.getMinutes()+" "+d.getSeconds()+"/ "+d.getMilliseconds()+" /"+d.getUTCMilliseconds());
+
+
+        /*var now1= function (){
+        document.getElementById("date").innerHTML="<h3>"+ new Date().toLocaleString("en-uk",{timeZone:"Asia/Dhaka" ,dateStyle: "long",timeStyle:"medium",hourCycle:"h11"})+"</h3>";
+        }
+        now1();
+        setInterval(now1,1000);*/
+        setInterval(function(){ document.getElementById("date").innerHTML="<h3>"+ new Date().toLocaleString("en-uk",{timeZone:"Asia/Dhaka" ,dateStyle: "long",timeStyle:"medium",hourCycle:"h11"})+"</h3>";})
+        var v= new Date();
+        document.write(d+ "<br>")
+        var time= d.getHours()+ ":"+d.getMinutes("en-uk",{})+":"+d.getSeconds()+":"+d.getMilliseconds();
+        var hours=d.getHours()<=9?"0"+d.getHours():d.getHours();
+        console.log(hours)
+
+        a=d.getHours();
+        function hrrs(){
+            if(d.getHours()<=9){
+                return "0"+d.getHours();
+            }
+            else{
+                return d.getHours();
+            }
+        }
+        console.log("hours is:"+hrrs())
+
+
+        var hhh=d.getHours()<=9?"0"+d.getHours():d.getHours();
+        console.log(hhh+3)
+        document.write(time);
+    </script>
+</body>
+</html>

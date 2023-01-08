@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-08" >
+        <meta name="viewport" content="width:device-width,intitial-scale:1.0">
+        <title>array tables</title>
+        <style>
+            h2{
+                color: crimson;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            table{
+                text-align: center;
+                margin: 30px auto;
+                background-color: white;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            th,td{
+                border-radius: 2px;
+                padding: 8px;
+               background: #eee;
+               font-family: Arial, Helvetica, sans-serif;
+               text-transform: capitalize;
+
+            }
+            th{
+                padding:10px 60px
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div id="data"></div>
+        <script>
+            var  products=[
+                {id:2022001,nameofproduct:"lenovo ideapad 3",processor:"intel i5",processor_gen:"12th gen",price:53599},
+                {id:2022002,nameofproduct:"lenovo ideapad gaming3 ",processor:"ryzen 5",processor_gen:"5th gen",price:48999},
+                {id:2022003,nameofproduct:"hp 14s",processor:"intel i5",processor_gen:"10th gen",price:45199},
+                {id:2022004,nameofproduct:"hp pavilion",processor:"intel i7",processor_gen:"12th gen",price:72399},
+                {id:2022005,nameofproduct:"dell inspiron",processor:"intel i5",processor_gen:"11th gen",price:50599},
+                {id:2022006,nameofproduct:"xiaomi notebook",processor:"intel i5",processor_gen:"11th gen",price:55599},
+                {id:2022007,nameofproduct:"asus gaming 3",processor:"ryzen 7",processor_gen:"8th gen",price:54499},
+                {id:2022008,nameofproduct:"asus vivobook",processor:"intel i3",processor_gen:"11th gen",price:45199},
+                {id:2022009,nameofproduct:"real me note",processor:"intel i5",processor_gen:"10th gen",price:47599},
+                {id:2022010,nameofproduct:"acer x5",processor:"intel i3",processor_gen:"10th gen",price:43399}
+
+            ];
+            console.log(products);
+            console.log(products[2].nameofproduct);
+            console.log(products[5]["processor"]);
+            console.log(products[5]);
+            
+            var lptp="<h2>----------: list of some laptops :------------</h2>";
+            lptp +="<table border='2' cellpadding='5'>";
+           // lptp += "<colgroup><col style='background-color:#555'><col  style='background-color:#666'><col style='background-color:#777'><col style='background-color:#888'><col style='background-color:#999'></colgroup>"    
+            lptp +="<tr><th>id of product</th><th>name of product</th><th>processor name </th><th> processor generation</th><th>price of product (in rupees)</th></tr>"
+            for(mdl of products)
+            {
+                lptp +="<tr>";
+                lptp +="<td>" + mdl.id + "</td>";
+                lptp +="<td>" + mdl.nameofproduct + "</td>";
+                lptp +="<td>" + mdl.processor+ "</td>";
+                lptp +="<td>"  + mdl.processor_gen + "</td>";
+                lptp += "<td>" +mdl.price + "</td>";
+                lptp +="</tr>";
+            }
+            lptp +="</table>";
+            document.getElementById("data").innerHTML = lptp;
+        </script>
+    </body>
+</html>

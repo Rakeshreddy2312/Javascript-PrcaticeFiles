@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="number" maxlength="4">
+    <button onclick="validateNum()">click to validate</button>
+    <script>
+        var inputvalue=document.querySelector("input");
+        console.log(inputvalue);
+        let validateNum =()=>{
+            console.log(inputvalue.value)
+        let arr=inputvalue.value.split("");
+        /*var sum=0;
+        arr.map(item=>{
+            sum+=Number(item) ;
+        })*/
+        console.log(arr)
+        
+        let sum=arr.reduce( (start,item)=>{return start+=Number(item)},0)
+        
+        if(sum===10){
+            alert("welcome")
+            inputvalue.value=" ";
+        }
+        else{
+            alert("sum is not equals to 10")
+                        inputvalue.value = " ";
+        }
+        //console.log(sum)
+
+
+        }
+       
+    </script>
+</body>
+</html>

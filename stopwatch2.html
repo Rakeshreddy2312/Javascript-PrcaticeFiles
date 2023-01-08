@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop watch using date and time</title>
+</head>
+<body>
+    <div class="timePeriod">
+        00 : 00 : 00 : 000
+    </div>
+    <button id="start">start</button>
+    <button id="pause">pause</button>
+    <button id="reset">reset</button>
+
+    <script>
+        let [starTtime,elapsedTime,currentTime]=[0,0,0];
+        let paused=true;
+        let [hrs,min,sec,msec]=[0,0,0,0];
+        let intrvl;
+
+        let timeToDisplay=document.querySelector(".timePeriod");
+        let startbtn = document.getElementById("start");
+        let pausebtn = document.getElementById("pause");
+        let resetbtn = document.getElementById("reset");
+
+
+        startbtn.addEventListener("click",startTimer);
+        pausebtn.addEventListener("click",pauseTimer);
+        resetbtn.addEventListener("click",resetTimer);
+
+        function startTimer(){
+            if(paused){
+                paused=false;
+                starTtime=Date.now()-elapsedTime;
+                intrvl=setInterval( runTimer ,50);
+                   /* elapsedTime=Date.now()-starTtime;
+                    msec=Math.floor(elapsedTime%1000);
+                    sec=Math.floor(elapsedTime/1000 % 60);
+                    min=Math.floor(elapsedTime/(1000*60) %60);
+                    hrs=Math.floor(elapsedTime/(1000*60*60) %60);
+                   timeToDisplay.innerHTML=hrs+" : "+min+" : "+sec+" : "+msec; */
+               
+            }
+        }
+        let runTimer=function (){
+            elapsedTime=Date.now()-starTtime;
+
+           msec = Math.floor(elapsedTime%1000);
+            sec = Math.floor(elapsedTime/1000 % 60);
+            min = Math.floor(elapsedTime/(1000*60) %60);
+            hrs = Math.floor(elapsedTime/(1000*60*60) %60);
+
+            hrs=hrs<10?"0"+hrs:hrs;
+            min=min<10?"0"+min:min;
+            sec=sec<10?"0"+sec:sec;
+            msec=msec<10?"0"+msec:msec;
+            msec=msec<100?"00"+msec:msec;
+             //hrs=unit(hrs);
+             min=unit(min);
+             sec=unit(sec);
+            
+            function unit(val){
+                return ("0"+val).length<2?"0"+val:val;
+            }
+            
+            timeToDisplay.innerHTML=hrs+" : "+min+" : "+sec+":"+msec;
+        }
+
+        function pauseTimer(){
+            if(!paused){
+                paused=true;
+                elapsedTime=Date.now()-starTtime;
+                clearInterval(intrvl)
+            }
+        }
+        function resetTimer(){
+            paused=true;
+            [hrs,min,sec,msec]=[0,0,0,0];
+            [starTtime,elapsedTime,currentTime]=[0,0,0];
+            clearInterval(intrvl);
+            timeToDisplay.innerHTML="00 : 00 : 00 : 000";
+        }
+         
+    </script>
+    
+</body>
+</html>

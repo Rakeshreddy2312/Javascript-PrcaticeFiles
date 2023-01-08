@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/images/logo.png">
+        <title>addEventListener
+        </title>
+        <style>
+            #block{
+                border:10px groove yellowgreen;
+                width: 50%;
+                height:300px;
+                margin-top:30px;
+                display: block;
+            }
+            p{
+                color: red;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <button>click me to hide content in below div block</button>
+        <div id="block"> <p style="display:block ;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea minima aliquid eos impedit omnis eveniet, nemo laboriosam magni harum unde qui reiciendis quibusdam expedita libero vero dolorem fugit odit ullam.</p> </div>
+        <script>
+            var btn=document.querySelector("button");
+            var data=document.querySelector("p");
+            let innerdata=data.innerText;
+            
+           
+                btn.addEventListener("click",removeData);  
+                function removeData()
+                {
+                    if(data.innerText)
+                    {   
+                        data.innerText='';
+                    }
+                   else{
+                    data.innerText=innerdata;
+                
+                   }
+
+                }
+        </script>
+    </body>
+</html>
+

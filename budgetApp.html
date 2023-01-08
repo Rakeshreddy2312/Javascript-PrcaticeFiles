@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Budge tApp</title>
+    <style>
+      input {
+        width: 80%;
+        height: 45px;
+        outline: none;
+        border: 2px solid rgb(200, 200, 200);
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      .name{
+        border-left: 5px solid #0d6efd;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="text-center display-3">BUDGET CALCULATOR</h1>
+      <div class="input-blck d-flex my-3">
+        <div class="budget-blck w-50 d-block">
+          <h4>Budget</h4>
+          <div>
+            <input
+              class="mb-3 totalBudget"
+              type="number"
+              placeholder="Enter Total Amout"
+            />
+          </div>
+          <button class="btn btn-primary budget-btn">Set Budget</button>
+        </div>
+
+        <div class="expenses-blck w-50">
+          <h4>Expenses</h4>
+          <input
+            type="text"
+            placeholder="Enter Title of Product"
+            class="p-title"
+          />
+          <input
+            type="number"
+            placeholder="Enter cost of Product"
+            class=" p-cost"
+          />
+          <button class="btn btn-primary expenses-btn">Check Amount</button>
+        </div>
+      </div>
+      <div
+        class="show-blck bg-primary text-start border rounded-4 p-5 my-3 row text-light border-start-4 border-start-4"
+      >
+        <div class="col-4">
+          <h6>Total Budget</h6>
+          <p id="showBudget"> 0 </p>
+        </div>
+        <div class="col-4">
+          <h6>Expenses</h6>
+          <p id="expenses"> 0 </p>
+        </div>
+        <div class="col-4">
+          <h6>Balance</h6>
+          <p id="balance"> 0 </p>
+        </div>
+      </div>
+      <div class="list-blck my-3 row">
+      </div>
+    </div>
+    <script>
+      let totalBudget = document.querySelector(".totalBudget");
+      let productTitle = document.querySelector(".p-title");
+      let productcost = document.querySelector(".p-cost");
+      let listBlck = document.querySelector(".list-blck");
+      let showBudget = document.querySelector("#showBudget");
+      let expenses = document.querySelector("#expenses");
+      let balance = document.querySelector("#balance");
+      let arrayProducts = [];
+    let budget;
+      document.querySelector(".budget-btn").addEventListener("click", () => {
+      showBudget.innerHTML = Number(totalBudget.value);
+      budget= Number(totalBudget.value);
+      totalBudget.value="";
+      displayProducts();
+      });
+
+      document.querySelector(".expenses-btn").addEventListener("click",()=>{
+       
+        arrayProducts.push({name:productTitle.value,cost:Number(productcost.value)})
+        console.log(arrayProducts);
+        productTitle.value='';
+        productcost.value='';
+       displayProducts();
+           
+      })
+      
+      const displayProducts=()=>{
+        let txt='';
+        let sum=0;
+            arrayProducts.map((item)=>{
+                sum+=item.cost;
+                txt+= `<p class='col-4 name'>${item.name}</p>
+                                     <p class='col-4 '>${item.cost}</p>
+                                     <p class='col-4'>
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-remove"></i>
+                                     </p>`;
+
+            })
+           listBlck.innerHTML=txt; 
+           expenses.innerHTML=sum;
+           balance.innerHTML = budget - sum;
+      }
+     
+     
+    </script>
+  </body>
+</html>

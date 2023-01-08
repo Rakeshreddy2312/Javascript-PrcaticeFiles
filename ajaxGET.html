@@ -1,0 +1,36 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax request </title>
+</head>
+<body>
+    <button>click to send a request to server</button>
+    <script>
+        var reqBtn=document.querySelector("button");
+        reqBtn.addEventListener("click",sendReq);
+        function sendReq(){
+            var xhrreq=new XMLHttpRequest();
+            xhrreq.open("GET","https://jsonplaceholder.typicode.com/users",true);
+            //xhrreq.open("GET","text.txt",true);
+            xhrreq.send();
+
+          xhrreq.onreadystatechange=function(){
+            if(xhrreq.readyState===4 && xhrreq.status===200){
+                const data=JSON.parse(xhrreq.responseText);
+                //const data=xhrreq.responseText;
+                console.log(data);
+            }
+            else{
+                console.log("server1 not found")
+            }
+          }
+          }
+        
+        
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!---<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="anchor()">
+    <a class="data"></a>
+    <script>
+        function anchor(){
+        var x=[{id:1,name:"facebook",href:"https//:facebook.com"},
+                {id:2,name:"google",href:"https//:facebook.com"},
+                {id:3,name:"youtube",href:"https//:facebook.com"},
+                {id:4,name:"instagram",href:"https//:facebook.com"}
+                ];
+        const y=
+            x.map(function(item,indx,arr){
+                
+            })
+
+            var x=document.querySelector(".data");
+            x.innerHTML="facebook";
+            x.setAttribute("href","https://www.facebook.com/")
+            x.setAttribute("target","-blanck")
+        }
+    </script>
+</body>
+</html>--->
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Anchor Object</h1>
+<h2>Create an a Element</h2>
+
+<button onload="myFunction()">Try it</button>
+<p>Click "Try it" to create an a element.</p>
+
+<script>
+const persons = [
+  {firstname : "Malcom", lastname: "Reynolds"},
+  {firstname : "Kaylee", lastname: "Frye"},
+  {firstname : "Jayne", lastname: "Cobb"}
+];
+
+//document.getElementById("demo").innerHTML = 
+persons.map(myFunction);
+function myFunction(item) {
+  const x = document.createElement("A");
+  const t = document.createTextNode(item.firstname);
+  x.setAttribute("href", item.firstname);
+  x.appendChild(t);
+  document.body.appendChild(x);
+}
+</script>
+
+</body>
+</html>

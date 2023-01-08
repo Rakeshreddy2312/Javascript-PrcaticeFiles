@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>array values by using <u>for of</u></h3>
+   
+    <div id="val"></div>
+
+    <h3> index by using <u>for in</u></h3>
+
+    <div id="val1"></div>
+    <h3>index and values of array using <u>for in</u> </h3>
+    <div id="data"></div>
+    <h3>values by using for loop</h3>
+    <div id="data1"></div>
+    
+    <script>
+
+        var arr=["rakesh","ravan","rama","seetha","hanuman"];
+    
+        // console.log(arr[0]);
+        // console.log(arr[1]);
+        // console.log(arr[2]);
+        // console.log(arr[3]);
+        // console.log(arr[4]);
+        // console.log(arr[5]);
+       var x3=document.getElementById("val");
+        var y3= "index of values in array";
+        for(y of arr)
+        {
+           y3 += "<h4>"+y+"</h4>";
+        }
+        x3.innerHTML=y3; 
+
+
+
+        var x4=document.getElementById("val1");
+        var y4= "index of values in array";
+        for(indx in arr)
+        {
+           y4 += "<h4>"+indx+ "</h4>";
+        }
+        x4.innerHTML=  y4;
+
+
+        var x3=document.getElementById("data");
+        var y3= "index and values of  in array";
+        for(y in arr)
+        {
+           y3 += "<h4>"+y+" . "+arr[y]+"</h4>";
+        }
+        x3.innerHTML=y3; 
+
+
+
+       var x4=document.getElementById("data1");
+       var y4="";
+       for(i=0;i<5;i++)
+       {
+        y4 += arr[i]+"<br>";
+       }
+       x4.innerHTML=y4; 
+       
+
+        /************  *************/
+        
+       
+       
+
+        
+
+    </script>
+</body>
+</html>

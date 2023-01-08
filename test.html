@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>array-iterateion-methods</title>  
+      <style>
+       
+      </style>
+    </head>
+    <body>
+      <h3>forEach() method </h3>
+      <div id="data1"></div>
+
+      <h3>map() method </h3>
+      <div id="data2"></div>
+
+      <h3>filter()</h3>
+      <div id="data3"></div>
+
+        <script>
+
+          var sub=["html","css","js","react","vue","bootstrap","tailwind","backbone","node"];
+          var  products=[
+                {id:2022001,nameofproduct:"lenovo ideapad 3",processor:"intel i5",processor_gen:"12 gen",price:53599},
+                {id:2022002,nameofproduct:"lenovo ideapad gaming3 ",processor:"ryzen 5",processor_gen:"5",price:48999},
+                {id:2022003,nameofproduct:"hp 14s",processor:"intel i5",processor_gen:"10",price:45199},
+                {id:2022004,nameofproduct:"hp pavilion",processor:"intel i7",processor_gen:"12",price:72399},
+                {id:2022005,nameofproduct:"dell inspiron",processor:"intel i5",processor_gen:"11",price:50599},
+                {id:2022006,nameofproduct:"xiaomi notebook",processor:"intel i5",processor_gen:"11",price:55599},
+                {id:2022007,nameofproduct:"asus gaming 3",processor:"ryzen 7",processor_gen:"8",price:54499},
+                {id:2022008,nameofproduct:"asus vivobook",processor:"intel i3",processor_gen:"11",price:45199},
+                {id:2022009,nameofproduct:"real me note",processor:"intel i5",processor_gen:"10",price:47599},
+                {id:2022010,nameofproduct:"acer x5",processor:"intel i3",processor_gen:"10",price:43399}
+            ];
+
+        
+            const data = products.filter(function(item){
+                return item.processor_gen.includes("12");
+            });
+
+           
+
+        </script>
+    </body>
+</html>

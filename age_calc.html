@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="UTF-08">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width:device-width,intial-scale=1.0">
+        <title>Elapsed time</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                
+            }
+            body{
+                background-image: linear-gradient(to left,rgb(33, 30, 30),rgb(195, 196, 195),rgb(31, 31, 31));   
+            }
+            .block{
+                height: 500px;
+                width: 500px; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(15, 9, 9, 0.25);
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                backdrop-filter: blur( 9.5px );
+                -webkit-backdrop-filter: blur( 9.5px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
+            }
+            input{
+                
+                height: 32px;
+                border: none;
+                border-radius: 8px;
+                font-size: 20px;
+                letter-spacing: 2px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: 900;
+                color: grey;
+                background-color: beige;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block">
+            <form action="" onsubmit="display()">
+                <input type="date" name="date" value="" class="datebox" id="date" >
+                <input type="submit" value="click to calculate age">
+
+                <div class="data1" style="color:white;"></div>
+                <div class="data2" style="color:white;"></div>
+            </form>
+        </div>
+        
+        <script>
+            
+            var data1=document.querySelector(".data1");
+            var data2=document.querySelector(".data2");
+            //var dis=document.querySelector("h2")
+            const display=()=>{
+                event.preventDefault();
+
+                let date=document.getElementById("date").value;
+                let dob1=new Date(date);
+
+                let now1=new Date();
+                let td=new Date(now1.getFullYear(),now1.getMonth(),now1.getDate());
+                
+                let diffmilli=td.getTime()-dob1.getTime();
+
+                sec= Math.floor(diffmilli/1000)+" age in seconds";
+                min=Math.floor(diffmilli/(1000*60))+"age in mintuues";
+                hrs=Math.floor(diffmilli/(1000*60*60))+"age in hours";
+                days=Math.floor(diffmilli/(1000*60*60*24))+"age in days";
+                mnths=Math.floor(diffmilli/(1000*60*60*24*30.473))+"age in months" ;
+                yrs=Math.floor(diffmilli/(1000*60*60*24*365.25))+"age in years" ;
+
+               data2.innerHTML=sec+"<br>"+min+"<br>"+hrs+"<br>"+days+"<br>"+mnths+"<br>"+yrs;
+               
+               
+                
+               //date which user enterd
+                let dob=document.getElementById("date").value;
+                    dob=new Date(dob);
+                let d1=dob.getDate(), m1=dob.getMonth(),y1=dob.getFullYear();
+
+                //present date it calculates from device  time
+                let now=new Date();
+                let d2=now.getDate(), m2=now.getMonth(),y2=now.getFullYear();
+                
+                let aged,agem,agey;
+                if(d1>d2){
+                    d2=31+d2;
+                    m2=m2-1
+                }
+                if(m1>m2){
+                    m2=m2+12;
+                    y2=y2-1;
+                }
+                aged=d2-d1;
+                agem=m2-m1;
+                agey=y2-y1;
+                //console.log(`your age is ${agey} years  ${agem} months ${aged} days `)
+
+                data1.innerHTML=`your age is ${agey} years  ${agem} months ${aged} days `;
+
+                 //console.log(dob.getMonth())
+                 //console.log(today.getMonth()+"today")
+                //console.log(yrs+"years",`${mnths}months`,`${days}days`) 
+           
+           }
+           
+            
+        </script>
+    </body>
+</html>
